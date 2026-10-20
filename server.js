@@ -31,7 +31,7 @@ const server = http.createServer(async (req, res) => {
   const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
   const pathname = urlObj.pathname;
 
-  if (pathname.startsWith('/api/')) {
+  if (pathname === '/api' || pathname.startsWith('/api/') || pathname.startsWith('/api')) {
     return apiHandler(req, res);
   }
 

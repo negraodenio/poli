@@ -53,8 +53,14 @@ module.exports = async function handler(req, res) {
     return res.end();
   }
 
-  const urlObj = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-  const pathname = urlObj.pathname;
+  const rawUrl = req.headers['x-matched-path'] || req.url;
+  const urlObj = new URL(rawUrl, `http://${req.headers.host || 'localhost'}`);
+  let pathname = urlObj.pathname;
+
+  if ((pathname === '/api' || pathname === '/api/') && req.query && req.query.slug) {
+    const slugArr = Array.isArray(req.query.slug) ? req.query.slug : [req.query.slug];
+    pathname = '/api/' + slugArr.join('/');
+  }
 
   try {
     // GET /api/state
