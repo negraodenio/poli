@@ -1,0 +1,19 @@
+{
+  "name": "aura3-polyai-platform",
+  "version": "1.0.0",
+  "description": "AURA³ — Plataforma Disruptiva de Poliamor, Intimidade e Terceiro Elemento com IA para Casais (Arquitetura 2:1)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ai-companion",
+    "couples",
+    "polyamory-ai",
+    "relationship-wellness",
+    "sextech"
+  ],
+  "author": "AURA³ Labs",
+  "license": "PROPRIETARY"
+}

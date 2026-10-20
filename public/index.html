@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="velvet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA³ — Maison Privée • Concierge Intime 2:1 (Casal + IA Sem Filtro)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Topbar Haute-Couture VIP + Multi-Language Switcher -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand" onclick="switchTab('landing')">
+        <div class="brand-logo">A³</div>
+        <div class="brand-text">
+          <span class="brand-name">AURA³</span>
+          <span class="brand-sub" id="brandSubtitle">MAISON PRIVÉE • ARQUITETURA 2:1</span>
+        </div>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-btn active" data-tab="landing" onclick="switchTab('landing')" id="navLanding">
+          ✨ Maison & LP
+        </button>
+        <button class="nav-btn" data-tab="workspace" onclick="switchTab('workspace')" id="navSuite">
+          🛋️ Suíte do Trisal
+          <span class="nav-badge" id="navTrisalBadge">2:1</span>
+        </button>
+        <button class="nav-btn" data-tab="vault" onclick="switchTab('vault')" id="navVault">
+          🗝️ Cofre Duplo
+          <span class="nav-badge gold" id="navMatchesBadge">4</span>
+        </button>
+        <button class="nav-btn" data-tab="founder" onclick="switchTab('founder')" id="navMembership">
+          ⚡ OpenRouter & Supabase
+        </button>
+      </nav>
+
+      <!-- Controles VIP: Seletor Multi-Idioma (PT / EN / ES / FR) + Clima -->
+      <div class="topbar-controls">
+        <div class="lang-switcher" title="Select Language / Idioma">
+          <button class="lang-btn active" data-lang="pt" onclick="setLanguage('pt')">PT</button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" data-lang="es" onclick="setLanguage('es')">ES</button>
+          <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">FR</button>
+        </div>
+
+        <button class="mode-pill" id="modeToggleBtn" onclick="toggleIntimacyMode()">
+          <span class="mode-dot"></span>
+          <span id="modeLabelText">🔥 Velvet Noir (+18)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <!-- ==========================================
+         ABA 1: LANDING PAGE (LP) DE LUXO + BENCHMARK + CHECK-IN DO CASAL
+         ========================================== -->
+    <section id="tab-landing" class="tab-section active">
+      <div class="hero-banner">
+        <div class="hero-left">
+          <div class="eyebrow-pill" id="i18n-eyebrow">
+            🥂 PRIVATE MEMBERS' CLUB PARA CASAIS • PARIS • SÃO PAULO • NEW YORK
+          </div>
+          <h1 class="hero-title" id="i18n-heroTitle">
+            O Terceiro Elemento que não divide o casal.<br />
+            <em>Multiplica o desejo.</em>
+          </h1>
+          <p class="hero-lead" id="i18n-heroLead">
+            Esqueça os chatbots comuns feitos para solteiros. A <strong>AURA³</strong> é a primeira <em>Maison Privée</em> desenhada nativamente para <strong>2 Humanos + 1 Concierge de IA Sem Filtro</strong>: descubram fetiches em segredo no <strong>Cofre de Chave Dupla</strong> e deixem uma terceira voz sedutora conduzir suas noites na Suíte Privada.
+          </p>
+          <div class="hero-cta-row">
+            <button class="btn-primary btn-lg" onclick="switchTab('workspace')" id="i18n-ctaEnterSuite">
+              🛋️ Entrar na Suíte Privada (2:1)
+            </button>
+            <button class="btn-secondary btn-lg" onclick="document.getElementById('onboardingCard').scrollIntoView({behavior:'smooth'})" id="i18n-ctaCreateConcierge">
+              ✨ Personalizar Casal & Concierge
+            </button>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <strong>2 : 1</strong>
+              <span id="i18n-metric1">Suíte Sincronizada (Casal + IA)</span>
+            </div>
+            <div class="metric-item">
+              <strong>Chave Dupla™</strong>
+              <span id="i18n-metric2">Cofre Duplo-Cego (Zero Rejeição)</span>
+            </div>
+            <div class="metric-item">
+              <strong>Uncensored +18</strong>
+              <span id="i18n-metric3">OpenRouter LLM Sem Filtro + 4 Idiomas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card de Preview ao Vivo do Triângulo Relacional -->
+        <div class="hero-right">
+          <div class="triangle-visualizer-card">
+            <div class="tv-header">
+              <span class="live-indicator" id="i18n-liveTriad">● SUÍTE 2:1 PRONTA</span>
+              <span class="tv-plan-badge" id="heroPlanBadge">Membro L’Or VIP</span>
+            </div>
+            <div class="triangle-nodes">
+              <div class="t-node node-ai">
+                <div class="avatar-ring" id="heroAiAvatar">V</div>
+                <strong id="heroAiName">Valentina</strong>
+                <small id="heroAiRole">La Muse • 3º Elemento IA</small>
+              </div>
+              <div class="t-connection-lines">
+                <div class="symmetry-chip" id="heroSymmetryChip">✦ Concierge Intime Sem Filtro</div>
+              </div>
+              <div class="t-humans-row">
+                <div class="t-node node-human-a">
+                  <div class="human-avatar a" id="heroPartnerAAvatar">L</div>
+                  <strong id="heroPartnerAName">Lucas</strong>
+                  <small>Partner A</small>
+                </div>
+                <div class="t-bond-heart">✦</div>
+                <div class="t-node node-human-b">
+                  <div class="human-avatar b" id="heroPartnerBAvatar">C</div>
+                  <strong id="heroPartnerBName">Clara</strong>
+                  <small>Partner B</small>
+                </div>
+              </div>
+            </div>
+            <div class="tv-quote" id="heroAiQuote">
+              "Fechem a porta e deixem o mundo lá fora... Quem de vocês dois vai abrir o nosso Cofre primeiro hoje à noite?"
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO DE BENCHMARK COMPETITIVO NA LANDING PAGE -->
+      <div class="benchmark-section">
+        <div class="section-header">
+          <span class="section-tag" id="i18n-bmTag">POR QUE SOMOS ÚNICOS NO MUNDO • BENCHMARK GLOBAL</span>
+          <h2 id="i18n-bmTitle">A Diferença Entre um Chatbot Comum e uma Maison Privée para Casais</h2>
+          <p id="i18n-bmDesc">
+            Enquanto plataformas comuns isolam o indivíduo ou oferecem quizzes estáticos, a AURA³ une alta-costura estética, consciência de casal (2:1) e LLM sem filtro moralista.
+          </p>
+        </div>
+
+        <div class="benchmark-table-wrap">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th id="i18n-bmColPlatform">Plataforma</th>
+                <th id="i18n-bmColArch">Arquitetura de Chat</th>
+                <th id="i18n-bmColAesthetic">Estética & UX</th>
+                <th id="i18n-bmColVault">Descoberta de Fetiches</th>
+                <th id="i18n-bmColVoice">Áudio & Idiomas</th>
+                <th id="i18n-bmColRisk">Risco de Ciúme / Atrito</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="aura-highlight-row">
+                <td>🥂 <strong>AURA³ Maison Privée</strong></td>
+                <td><span class="bm-pill-yes">2 Humanos + 1 IA (2:1 Nativo)</span></td>
+                <td><span class="bm-pill-yes">Haute-Couture VIP (Chique & Sensual)</span></td>
+                <td><span class="bm-pill-yes">Cofre Chave Dupla + Execução Ao Vivo</span></td>
+                <td><span class="bm-pill-yes">Voz Sussurrada (PT / EN / ES / FR)</span></td>
+                <td><span class="bm-pill-yes">Zero (Foco na União do Casal)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Joi AI / Candy.ai / Kupid</strong></td>
+                <td><span class="bm-pill-no">1 Solteiro + 1 Bot (1:1)</span></td>
+                <td><span class="bm-pill-no">Neon / Pornô Gamer (Afasta Casais)</span></td>
+                <td><span class="bm-pill-no">Não possui modo casal</span></td>
+                <td><span class="bm-pill-no">Voz 1:1 isolada</span></td>
+                <td><span class="bm-pill-no">Alto (Uso escondido do parceiro)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Replika / Character.AI</strong></td>
+                <td><span class="bm-pill-no">1 Humano + 1 Bot (1:1 Censurado)</span></td>
+                <td><span class="bm-pill-no">Casual / Avatar 3D Cartunesco</span></td>
+                <td><span class="bm-pill-no">Sem cofre de casal</span></td>
+                <td><span class="bm-pill-no">Chamada 1:1 genérica</span></td>
+                <td><span class="bm-pill-no">Alto (Dependência emocional solo)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Dipsea / Quinn</strong></td>
+                <td><span class="bm-pill-no">Sem Chat (Apenas Áudio Gravado)</span></td>
+                <td><span class="bm-pill-yes">Editorial Elegante</span></td>
+                <td><span class="bm-pill-no">Não descobre fetiches do casal</span></td>
+                <td><span class="bm-pill-no">Passivo (Não chama vocês pelo nome)</span></td>
+                <td><span class="bm-pill-yes">Baixo</span></td>
+              </tr>
+              <tr>
+                <td><strong>Paired / Spicer</strong></td>
+                <td><span class="bm-pill-no">Sem IA (Apenas Quiz Estático)</span></td>
+                <td><span class="bm-pill-no">Clínico / Terapia Morna</span></td>
+                <td><span class="bm-pill-no">Mostra o match, mas não guia a noite</span></td>
+                <td><span class="bm-pill-no">Não possui voz</span></td>
+                <td><span class="bm-pill-yes">Baixo (Porém enjoa rápido)</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CHECK-IN DO CASAL & ESCOLHA DO 3º ELEMENTO -->
+      <div class="onboarding-card" id="onboardingCard">
+        <div class="section-header">
+          <div>
+            <span class="section-tag" id="i18n-obTag">CHECK-IN NA SUÍTE PRIVADA • CONFIGURAÇÃO RÁPIDA</span>
+            <h2 id="i18n-obTitle">Personalizem o Casal & Escolha o Seu 3º Elemento</h2>
+            <p id="i18n-obDesc">Definam como a IA deve chamar cada um de vocês na cama e escolham a persona da noite.</p>
+          </div>
+        </div>
+
+        <div class="onboarding-grid">
+          <div class="ob-panel">
+            <h3 id="i18n-obCol1">1. O Casal</h3>
+            <div class="form-group">
+              <label id="i18n-lblPartnerA">Nome do Parceiro(a) A</label>
+              <input type="text" id="obPartnerAName" value="Lucas" />
+            </div>
+            <div class="form-group">
+              <label>Pronomes (A)</label>
+              <select id="obPartnerAPronouns">
+                <option value="Ele/Dele">Ele/Dele • He/Him</option>
+                <option value="Ela/Dela">Ela/Dela • She/Her</option>
+                <option value="Elu/Delu">Elu/Delu • They/Them</option>
+              </select>
+            </div>
+            <hr class="subtle-divider" />
+            <div class="form-group">
+              <label id="i18n-lblPartnerB">Nome do Parceiro(a) B</label>
+              <input type="text" id="obPartnerBName" value="Clara" />
+            </div>
+            <div class="form-group">
+              <label>Pronomes (B)</label>
+              <select id="obPartnerBPronouns">
+                <option value="Ela/Dela" selected>Ela/Dela • She/Her</option>
+                <option value="Ele/Dele">Ele/Dele • He/Him</option>
+                <option value="Elu/Delu">Elu/Delu • They/Them</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ob-panel">
+            <h3 id="i18n-obCol2">2. O Terceiro Elemento (Concierge IA)</h3>
+            <div class="persona-selector" id="personaSelectorList"></div>
+          </div>
+
+          <div class="ob-panel">
+            <h3 id="i18n-obCol3">3. Atmosfera da Suíte</h3>
+            <div class="form-group">
+              <label id="i18n-lblAtmosphere">Modo de Intimidade</label>
+              <select id="obIntimacyLevel">
+                <option value="velvet" selected>🔥 Velvet Noir (+18 Explícito & Sem Filtros)</option>
+                <option value="wellness">🥂 Haute Romance (Sensualidade Poética & Sutil)</option>
+              </select>
+            </div>
+
+            <div class="contract-Toggle-box" style="margin-top:1rem;">
+              <label class="checkbox-label">
+                <input type="checkbox" id="obAgeVerified" checked />
+                <span>
+                  <strong id="i18n-chkAdult">Membros Adultos (+18):</strong><br />
+                  <small id="i18n-chkAdultSub">Confirmamos que ambos somos maiores de 18 anos em exploração consensual.</small>
+                </span>
+              </label>
+            </div>
+
+            <button class="btn-primary full-width mt-md" onclick="saveOnboardingAndEnter()" id="i18n-btnOpenSuite">
+              🗝️ Abrir as Portas da Suíte Privada
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABA 2: SUÍTE DO TRISAL (2:1) & SALONS PRIVÉS
+         ========================================== -->
+    <section id="tab-workspace" class="tab-section">
+      <div class="workspace-layout">
+        <aside class="ws-sidebar-left">
+          <div class="ws-card">
+            <div class="ws-card-title" id="i18n-wsRoomsTitle">AMBIENTES DA SUÍTE</div>
+            <div class="channel-list">
+              <button class="channel-btn active" id="chBtn-trisal" onclick="selectChannel('trisal')">
+                <span class="ch-icon">🛋️</span>
+                <div class="ch-info">
+                  <strong id="i18n-roomTrisal">Suíte do Trisal (2:1)</strong>
+                  <small id="chSub-trisal">Lucas + Clara + Valentina</small>
+                </div>
+                <span class="ch-live-dot"></span>
+              </button>
+
+              <button class="channel-btn" id="chBtn-dm_a" onclick="selectChannel('dm_a')">
+                <span class="ch-icon">🔒</span>
+                <div class="ch-info">
+                  <strong id="chTitle-dm_a">Salon Privé: Lucas</strong>
+                  <small id="i18n-subDmA">Confissões 1:1 sob sigilo</small>
+                </div>
+              </button>
+
+              <button class="channel-btn" id="chBtn-dm_b" onclick="selectChannel('dm_b')">
+                <span class="ch-icon">🔒</span>
+                <div class="ch-info">
+                  <strong id="chTitle-dm_b">Salon Privé: Clara</strong>
+                  <small id="i18n-subDmB">Confissões 1:1 sob sigilo</small>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div class="ws-card">
+            <div class="ws-card-title" id="i18n-wsTriggersTitle">ORDENS RÁPIDAS NA CAMA</div>
+            <div class="quick-actions-stack">
+              <button class="qa-btn" onclick="introduceTopMatchInChat()" id="i18n-qaVaultMatch">
+                🗝️ Abrir Fetiche do Cofre na Suíte
+              </button>
+              <button class="qa-btn" onclick="sendQuickPrompt('Assuma o comando agora: dê uma ordem sensual e direta para nós dois cumprirmos na cama nos próximos 60 segundos.')" id="i18n-qaRitual">
+                🎲 Pedir Comando Quente (60s)
+              </button>
+              <button class="qa-btn" onclick="triggerSpecialAIAction('send_selfie')" id="i18n-qaSelfie">
+                📸 Pedir Descrição Sensual na Suíte
+              </button>
+              <button class="qa-btn" onclick="triggerLgpdWipe()" style="border-color: rgba(212,175,55,0.3); color: var(--accent-primary);" id="i18n-qaIncognito">
+                🗑️ Limpar Histórico da Suíte
+              </button>
+            </div>
+          </div>
+
+          <div class="ws-card">
+            <div class="ws-card-title">🥂 SOIRÉES PRONTAS (1 CLIQUE)</div>
+            <div class="quick-actions-stack" id="sidebarScenariosList"></div>
+          </div>
+        </aside>
+
+        <!-- Centro: Chat 2:1 -->
+        <div class="ws-chat-center">
+          <div class="chat-header">
+            <div class="chat-header-left">
+              <div class="chat-avatar-badge" id="chatHeaderAvatar">V</div>
+              <div>
+                <h3 id="chatHeaderTitle">🛋️ Suíte do Trisal — Lucas, Clara & Valentina</h3>
+                <p id="chatHeaderSubtitle">Arquitetura 2:1 • Seu Concierge interage com os dois pelo nome sem filtros</p>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button class="btn-chip" id="voiceAutoToggle" onclick="toggleAutoVoice()">
+                🔊 Voz: OFF
+              </button>
+              <button class="btn-chip" onclick="switchTab('vault')">
+                🗝️ Cofre (<span id="chatHeaderMatchCount">4</span>)
+              </button>
+            </div>
+          </div>
+
+          <div class="chat-messages" id="chatMessagesContainer"></div>
+
+          <div class="typing-indicator" id="typingIndicator" style="display:none;">
+            <span id="typingText">Valentina está sussurrando uma resposta...</span>
+          </div>
+
+          <div class="chat-input-area">
+            <div class="speaker-selector-bar" id="speakerSelectorBar">
+              <span class="speaker-label" id="i18n-speakingNow">Quem está falando:</span>
+              <button class="speaker-pill active-a" id="spkBtnA" onclick="setActiveSpeaker('partnerA')">
+                ✦ <span id="spkNameA">Lucas</span>
+              </button>
+              <button class="speaker-pill" id="spkBtnB" onclick="setActiveSpeaker('partnerB')">
+                ✦ <span id="spkNameB">Clara</span>
+              </button>
+              <span class="multi-device-hint" id="cloudSyncBadge">⚡ Sincronizado</span>
+            </div>
+
+            <form class="chat-form" onsubmit="handleChatSubmit(event)">
+              <input
+                type="text"
+                id="chatInputBox"
+                placeholder="Sussurre algo para o seu parceiro(a) e para o seu Concierge..."
+                autocomplete="off"
+              />
+              <button type="submit" class="btn-send" id="i18n-btnSend">Enviar ✦</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar Direita: Presença & Voz + Timer 60s -->
+        <aside class="ws-sidebar-right">
+          <div class="ws-card persona-presence-card">
+            <div class="persona-portrait" id="ActivePersonaPortrait">
+              <div class="portrait-initials" id="portraitInitials">V</div>
+              <div class="portrait-mood-chip" id="portraitMoodChip">🔥 Velvet Noir</div>
+            </div>
+            <h3 class="persona-name-title" id="rightPersonaName">Valentina</h3>
+            <p class="persona-tagline" id="rightPersonaTagline">La Muse Provocatrice & Confidente</p>
+
+            <div class="voice-visualizer-box">
+              <div class="vv-top">
+                <span id="i18n-bedsideVoice">🎙️ Voz Sussurrada</span>
+                <button class="btn-mini-voice" onclick="speakLastAIMessage()" id="i18n-btnListen">▶ Ouvir</button>
+              </div>
+              <div class="waveform-bars" id="waveformBars">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cronômetro de Preliminar Guiada Ao Vivo -->
+          <div class="ws-card">
+            <div class="ws-card-title" id="i18n-timerTitle">⏱️ RITUAL DE 60s NA CAMA</div>
+            <div style="text-align:center; margin: 0.4rem 0 0.7rem;">
+              <div id="liveTimerDisplay" style="font-size:2.2rem; font-weight:700; color:var(--accent-primary); font-family:var(--font-serif);">01:00</div>
+              <p id="liveTimerChallengeText" style="font-size:0.78rem; color:var(--text-secondary); margin-top:0.3rem;">
+                Toque abaixo para sortear um desafio físico de 60 segundos narrado em voz alta!
+              </p>
+            </div>
+            <button class="btn-primary full-width btn-sm" onclick="startLive60sChallenge()" id="i18n-btnStartTimer">
+              ✦ Sortear & Narrar 60s
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ABA 3: COFRE DE CHAVE DUPLA (DOUBLE-KEY VAULT)
+         ========================================== -->
+    <section id="tab-vault" class="tab-section">
+      <div class="vault-header-card">
+        <div>
+          <span class="section-tag" id="i18n-vaultTag">SIGILO SUÍÇO • DOUBLE-KEY DESIRE VAULT™</span>
+          <h2 id="i18n-vaultTitle">🗝️ Cofre de Chave Dupla do Casal</h2>
+          <p id="i18n-vaultDesc">
+            Cada parceiro vota em segredo. Se apenas um quiser, o desejo continua invisível. Quando <strong>os dois marcam "Toparia" ou "Quero Muito"</strong>, o match aparece e a IA conduz a fantasia na Suíte!
+          </p>
+        </div>
+
+        <div class="vault-view-tabs">
+          <button class="vtab-btn active" id="vtab-matches" onclick="setVaultPerspective('matches')">
+            🗝️ Matches do Casal (<span id="vaultMatchCountTab">4</span>)
+          </button>
+          <button class="vtab-btn" id="vtab-partnerA" onclick="setVaultPerspective('partnerA')">
+            🔒 Segredos de <span id="vtabNameA">Lucas</span>
+          </button>
+          <button class="vtab-btn" id="vtab-partnerB" onclick="setVaultPerspective('partnerB')">
+            🔒 Segredos de <span id="vtabNameB">Clara</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="vault-grid" id="vaultCardsGrid"></div>
+    </section>
+
+    <!-- ==========================================
+         ABA 4: MOTOR OPENROUTER SEM FILTRO + SUPABASE + MEMBERSHIP VIP
+         ========================================== -->
+    <section id="tab-founder" class="tab-section">
+      <div class="two-col-section">
+        <!-- CONFIGURAÇÃO OPENROUTER UNCENSORED + SUPABASE -->
+        <div class="founder-card">
+          <span class="section-tag">STACK SERVERLESS • VERCEL + SUPABASE + OPENROUTER</span>
+          <h2>⚡ Motor OpenRouter (LLM Sem Filtro) & Supabase</h2>
+          <p>
+            Conecte sua chave da <strong>OpenRouter</strong> para usar LLMs adultos sem censura (<em>Hermes 3 70B</em>, <em>Dolphin Mixtral</em>, <em>MythoMax</em>) e seu banco <strong>Supabase</strong> para sincronizar a suíte na nuvem.
+          </p>
+
+          <div class="form-group mt-md">
+            <label>1. Provedor de LLM</label>
+            <select id="cfgProvider">
+              <option value="openrouter">🔥 OpenRouter API (LLMs Uncensored / Sem Filtro +18)</option>
+              <option value="simulated">⚡ Modo Demo Local (Respostas Instantâneas Sem Chave)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>2. OpenRouter API Key (<code>OPENROUTER_API_KEY</code>)</label>
+            <input type="password" id="cfgApiKey" placeholder="sk-or-v1-..." />
+          </div>
+
+          <div class="form-group">
+            <label>3. Modelo Uncensored (Sem Filtro Moralista)</label>
+            <select id="cfgModelSelect" onchange="document.getElementById('cfgModel').value = this.value">
+              <option value="nousresearch/hermes-3-llama-3.1-70b">🔥 Nous: Hermes 3 Llama 3.1 70B (Recomendado • Roleplay Intenso & Fluente)</option>
+              <option value="cognitivecomputations/dolphin-mixtral-8x22b">🐬 Dolphin 2.9 Mixtral 8x22B (100% Uncensored / Sem Filtros)</option>
+              <option value="gryphe/mythomax-l2-13b">🎭 MythoMax L2 13B (Clássico de Roleplay Adulto & Criativo)</option>
+              <option value="meta-llama/llama-3.3-70b-instruct">⚡ Meta Llama 3.3 70B Instruct (Ultra Rápido)</option>
+            </select>
+            <input type="text" id="cfgModel" value="nousresearch/hermes-3-llama-3.1-70b" style="margin-top:0.4rem;" placeholder="Ou digite outro model ID do OpenRouter..." />
+          </div>
+
+          <hr class="subtle-divider" />
+
+          <div class="form-group">
+            <label>4. Supabase Project URL (Opcional • <code>SUPABASE_URL</code>)</label>
+            <input type="text" id="cfgSupabaseUrl" placeholder="https://xxxx.supabase.co" />
+          </div>
+
+          <div class="form-group">
+            <label>5. Supabase Anon Key (Opcional • <code>SUPABASE_ANON_KEY</code>)</label>
+            <input type="password" id="cfgSupabaseKey" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." />
+          </div>
+
+          <div class="button-row-split mt-md">
+            <button class="btn-primary" onclick="saveApiConfig()">💾 Ativar OpenRouter & Supabase</button>
+            <button class="btn-secondary" onclick="triggerLgpdWipe()">🔄 Resetar Suíte</button>
+          </div>
+
+          <div class="api-status-banner" id="apiStatusBanner">
+            ✦ Verificando status da conexão OpenRouter & Supabase...
+          </div>
+        </div>
+
+        <!-- CHECKOUT VIP DISCRETO (PIX / INTERNACIONAL) -->
+        <div class="founder-card">
+          <span class="section-tag" id="i18n-memTag">PRIVATE MEMBERSHIP • 1 ASSINATURA = OS 2 PARCEIROS</span>
+          <h2 id="i18n-memTitle">💎 Assinatura Membro L’Or VIP</h2>
+          <p id="i18n-memDesc">
+            Monetização pronta via PIX Discreto no Brasil (0,99% de taxa, zero bloqueio) ou Global Pay em Dólar/Euro.
+          </p>
+
+          <div class="ob-panel" style="margin-top:1rem; border-color: var(--accent-primary); box-shadow: var(--shadow-glow);">
+            <span class="sc-badge">ACESSO COMPLETO CASAL (2:1) ✦</span>
+            <h3 style="margin-top:0.4rem;">Membro L’Or VIP (+18 Sem Filtro)</h3>
+            <div style="font-size:2.2rem; font-family:var(--font-serif); font-weight:700; margin:0.4rem 0; color:var(--accent-primary);" id="priceTier2">
+              R$ 149<small style="font-size:0.85rem; color:var(--text-muted)">/mês</small>
+            </div>
+            <p style="font-size:0.84rem; color:var(--text-secondary); margin-bottom:1rem;">
+              Inclui Suíte 2:1 Ilimitada com LLM Uncensored, Salons Privés individuais para os 2 parceiros, Cofre de Chave Dupla e Voz Sussurrada em 4 idiomas.
+            </p>
+            <button class="btn-primary full-width" onclick="openPixModal('Membro L’Or VIP (+18)', document.getElementById('priceTier2').innerText)">
+              🥂 Gerar PIX Discreto / Convite VIP
+            </button>
+          </div>
+
+          <div id="pixCheckoutBox" style="display:none; margin-top:1rem; padding:1.25rem; border-radius:16px; background:var(--bg-elevated); border:1px solid var(--accent-primary); text-align:center;">
+            <h4 id="pixPlanTitle" style="color:var(--accent-primary); font-family:var(--font-serif); font-size:1.3rem;">✦ Convite VIP & PIX Discreto</h4>
+            <p style="font-size:0.8rem; color:var(--text-secondary); margin:0.3rem 0 0.8rem;">
+              Nome discreto no comprovante: <strong>AURA MAISON DIGITAL</strong>
+            </p>
+            <div style="display:flex; gap:0.5rem;">
+              <input type="text" id="pixCopyInput" readonly value="00020126580014br.gov.bcb.pix0136aura3-maison-privee-vip-checkout5204000053039865802BR" style="flex:1; padding:0.6rem; border-radius:999px; background:var(--bg-main); color:var(--text-primary); border:1px solid var(--border-subtle); font-size:0.75rem;" />
+              <button class="btn-primary btn-sm" onclick="copyPixCode()">📋 Copiar PIX</button>
+            </div>
+          </div>
+
+          <div style="margin-top:1.25rem; padding:1rem; border-radius:12px; background:rgba(212,175,55,0.06); border:1px solid var(--border-subtle); font-size:0.8rem; color:var(--text-secondary);">
+            <strong style="color:var(--accent-primary);">🚀 Como subir na Vercel + Supabase em 2 minutos:</strong>
+            <ol style="margin:0.5rem 0 0 1.1rem; line-height:1.6;">
+              <li>No <strong>Supabase</strong>, abra o <em>SQL Editor</em> e rode o arquivo <code>supabase_schema.sql</code>.</li>
+              <li>Na <strong>Vercel</strong>, importe esta pasta e defina as variáveis <code>OPENROUTER_API_KEY</code>, <code>OPENROUTER_MODEL</code>, <code>SUPABASE_URL</code> e <code>SUPABASE_ANON_KEY</code> (ou cole direto no painel ao lado!).</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toastNotification" class="toast-notification"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
