@@ -1,6 +1,16 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+
+// Carrega .env nativamente se presente (Node 20+)
+if (typeof process.loadEnvFile === 'function') {
+  try {
+    process.loadEnvFile();
+  } catch (e) {
+    // .env opcional
+  }
+}
+
 const apiHandler = require('./api/index');
 
 const PORT = process.env.PORT || 3333;

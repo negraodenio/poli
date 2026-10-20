@@ -481,12 +481,16 @@
           <div class="form-group">
             <label>3. Modelo Uncensored (Sem Filtro Moralista)</label>
             <select id="cfgModelSelect" onchange="document.getElementById('cfgModel').value = this.value">
-              <option value="nousresearch/hermes-3-llama-3.1-70b">🔥 Nous: Hermes 3 Llama 3.1 70B (Recomendado • Roleplay Intenso & Fluente)</option>
+              <option value="nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free" selected>🟢 NVIDIA: Nemotron 3 Nano Omni (100% Grátis • Rápido & Sem Fila)</option>
+              <option value="minimax/minimax-m3.1-flash:free">🟢 MiniMax: M3.1 Flash (100% Grátis • Ativo)</option>
+              <option value="google/gemma-4-31b-it:free">🎁 Google: Gemma 4 31B (100% Grátis • OpenRouter)</option>
+              <option value="google/gemma-4-26b-a4b-it:free">🎁 Google: Gemma 4 26B A4B (100% Grátis • MoE)</option>
+              <option value="nousresearch/hermes-3-llama-3.1-70b">🔥 Nous: Hermes 3 Llama 3.1 70B (Roleplay Intenso & Fluente)</option>
               <option value="cognitivecomputations/dolphin-mixtral-8x22b">🐬 Dolphin 2.9 Mixtral 8x22B (100% Uncensored / Sem Filtros)</option>
               <option value="gryphe/mythomax-l2-13b">🎭 MythoMax L2 13B (Clássico de Roleplay Adulto & Criativo)</option>
               <option value="meta-llama/llama-3.3-70b-instruct">⚡ Meta Llama 3.3 70B Instruct (Ultra Rápido)</option>
             </select>
-            <input type="text" id="cfgModel" value="nousresearch/hermes-3-llama-3.1-70b" style="margin-top:0.4rem;" placeholder="Ou digite outro model ID do OpenRouter..." />
+            <input type="text" id="cfgModel" value="nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free" style="margin-top:0.4rem;" placeholder="Ou digite outro model ID do OpenRouter..." />
           </div>
 
           <hr class="subtle-divider" />
